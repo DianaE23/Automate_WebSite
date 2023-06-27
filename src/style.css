@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&family=Dosis:wght@500&family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+
+
+
+* {
+margin: 0;
+padding: 0%;
+box-sizing: border-box;
+text-decoration: none;
+color: white;
+z-index: 1;
+}
+
+.boujee-text {
+    --bg-size: 400%;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+  font-size: clamp(3rem, 25vmin, 8rem);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 8s infinite linear;
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .boujee-text {
+      animation: move-bg 8s linear infinite;
+    }
+    @keyframes move-bg {
+      to {
+        background-position: var(--bg-size) 0;
+      }
+    }
+
+}
+
+body {
+    width: 1930px;
+    height: 1080px;
+    flex-shrink: 0;
+    background: radial-gradient(80.04% 140.93% at 50.00% -8.84%, #60EAEF 4.19%, #060237 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+
+:root{
+    --color-pri: rgb(247, 38, 153);
+    --color-pri-light: rgb(86, 13, 82);
+    --color-sec: rgb(244, 134, 101);
+    --color-sec-light: rgb(121, 45, 13);
+
+    --pc-width : 75%;
+    --tab-width : 90%;
+    --phone-width : 100%;
+}
+
+body::before{
+content: '';
+position: fixed;
+height: 200px;
+width: 200px;
+background: rgb(68, 134, 101);
+filter: blur(140px);
+}
+
+body::after{
+    content: '';
+    position: fixed;
+    top: 200px;
+    left: 250px;
+    height: 200px;
+    width: 200px;
+    background: rgb(173, 16, 16);
+    filter: blur(140px);
+    }
+
+.bg-box-1 {
+    width: 816px;
+    height: 476px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 35px;
+}
+
+.bg-box-2{
+    width: 816px;
+    height: 476px;
+    background: rgba(8, 198, 68, 0.2);
+    border-radius: 35px;
+
+}
+
+.container {
+    width: var(--pc-width);
+    color: var(--text-pri);
+    padding: 10px 40px;
+    margin: 5px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width : 500px) {
+
+    .container{
+        width: var(--phone-width);
+    }
+}
+    
