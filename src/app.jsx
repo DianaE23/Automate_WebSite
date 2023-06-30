@@ -1,9 +1,23 @@
 import React from "react";
+import "./styles.css";
 
-const App = () => {
+
+
+
+function MyButton() {
     return (
-        <h1> hELLO </h1>
+      <button>
+        I'm a button
+      </button>
     );
-}
-
-export default App;
+  }
+  
+  export default function MyApp() {
+    return (
+      <div>
+        <h1>Welcome to my app</h1>
+        <MyButton />
+      </div>
+    );
+  }
+  

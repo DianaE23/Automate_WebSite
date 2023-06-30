@@ -13,26 +13,34 @@ color: white;
 z-index: 1;
 }
 
-.boujee-text {
+.rainbow-text {
     --bg-size: 400%;
-  --color-one: hsl(15 90% 55%);
-  --color-two: hsl(40 95% 55%);
-  font-size: clamp(3rem, 25vmin, 8rem);
+  --color-zero: hsl(0, 70%, 51%);
+  --color-one: hsl(59, 78%, 49%);
+  --color-two: hsl(114, 76%, 50%);
+  --color-tree: hsl(192, 71%, 54%);
+  --color-four: hsl(247, 64%, 48%);
+  --color-five: hsl(291, 79%, 44%);
+  font-size: clamp(1rem, 10vmin, 4rem);
   background: linear-gradient(
                 90deg,
+                var(--color-zero),
                 var(--color-one),
                 var(--color-two),
-                var(--color-one)
+                var(--color-tree),
+                var(--color-four),
+                var(--color-five)
               ) 0 0 / var(--bg-size) 100%;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: move-bg 8s infinite linear;
+  animation: move-bg 12s infinite linear;
 
 }
+/* Fonction d'animation pour le rainbow text */
 
 @media (prefers-reduced-motion: no-preference) {
-    .boujee-text {
+    .rainbow-text {
       animation: move-bg 8s linear infinite;
     }
     @keyframes move-bg {
@@ -77,7 +85,7 @@ content: '';
 position: fixed;
 height: 200px;
 width: 200px;
-background: rgb(68, 134, 101);
+background: rgb(129, 241, 232);
 filter: blur(140px);
 }
 
@@ -95,7 +103,7 @@ body::after{
 .bg-box-1 {
     width: 816px;
     height: 476px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(10, 221, 56, 0.923);
     border-radius: 35px;
 }
 
@@ -124,3 +132,7 @@ body::after{
     }
 }
     
+
+.avatar {
+    border-radius: 50%;
+  }
