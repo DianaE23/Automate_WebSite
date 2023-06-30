@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -7,6 +6,7 @@ import {
     Route,
     Link,
 } from "react-router-dom";
+
 import Home from './components/home/home';
 import About from './components/about/about';
 import App from './app.js';
