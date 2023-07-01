@@ -1,25 +1,42 @@
-import * as React from "react";
+import  React from "react";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
   Link,
+  Outlet,
 } from "react-router-dom";
 
 import Home from './components/home/home';
 import About from './components/about/about';
+import Navbar from "./components/nav/navbar";
+import ErrorPage from "./components/nav/error";
+import "./styles.css";
+const AppLayout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+};
 
 const router = createBrowserRouter([
-{
-    path: "/",
-    element:<Home/>,
-},
-
-{
-    path: "about",
-    element:<About/>,
-},
+  {
+    element:<AppLayout/>,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element:<Home/>,
+      },
+      {
+        path: "about",
+        element:<About/>,
+      },
+    ],
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

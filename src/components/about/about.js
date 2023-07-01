@@ -1,18 +1,13 @@
 
 import React from "react";
+import { BsNewspaper } from "react-icons/bs";
 
 function About () {
     return (
-        <div className="about">
-            style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '100vh'
-            }}
-        
-            <h1>Home!</h1>
-        </div>
+     <div className="about">
+        <h1>Welcome to our About!</h1>
+        <BsNewspaper className="page-icon" />
+     </div>
     );
 };
 
