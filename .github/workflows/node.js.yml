@@ -3,11 +3,18 @@
 
 name: Node.js CI
 
+# EN : When push or pull request on main  branch --> Activate Workflow 
+# FR : Pour chaque push ou pull request sur la main branch --> Activation du Workflow 
+
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+
+# EN : Jobs Workflow for CI
+# FR : Action du workflow pour le CI 
 
 jobs:
   build:
