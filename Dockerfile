@@ -20,5 +20,5 @@ RUN npm install
 
 
 EXPOSE 3000
-# start app
+# start app react
 CMD ["npm", "start"]
