@@ -1,5 +1,6 @@
 # pull official base image
-FROM node:18.16.1-debian
+FROM node:18-alpine
+
 
 # set working directory
 WORKDIR /app
