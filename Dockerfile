@@ -12,10 +12,13 @@ WORKDIR /app
 # add app
 COPY . .
 
+
 # install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm install 
 
+
+EXPOSE 3000
 # start app
 CMD ["npm", "start"]
