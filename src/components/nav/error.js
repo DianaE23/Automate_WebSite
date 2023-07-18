@@ -1,5 +1,4 @@
 import { useRouteError } from "react-router-dom";
-import "/workspaces/CloudData_CV/src/styles.css";
 
 export default function ErrorPage() {
   const error = useRouteError();
