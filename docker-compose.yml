@@ -1,7 +1,14 @@
 version: '3'
 services:
   dc_myapp:
+    container_name: container_myappweb
     build: 
       context: .
       dockerfile: Dockerfile
-    
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV: production 
+    volumes:
+      - ./src:/app/src 
+  
