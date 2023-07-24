@@ -1,0 +1,7 @@
+version: '3'
+services:
+  dc_myapp:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    
