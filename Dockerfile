@@ -1,31 +1,31 @@
-##BUILD 
 
-# pull official base image
-FROM node:18-alpine
-WORKDIR /app
-COPY . .
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install 
-
-# start app react ok
-CMD ["npm", "start"]
-
+#FROM node:18-alpine
+#WORKDIR /app
+#COPY . .
+#COPY package.json ./
+#COPY package-lock.json ./
+#RUN npm install 
+#CMD ["npm", "start"]
 ###########################################
-##PRODUCTION
-# pull official base image
+
+
+#STAGE 1 BUILD IMAGE 
+
 FROM node:18-alpine as builder
-# set working directory
 WORKDIR /app
 COPY package.json .
-
+COPY package-lock.json ./
 RUN npm install 
-# add app
 COPY . .
-
 RUN npm run build  
 
-# install app dependencies
-FROM nginx:alpine
+#STAGE WEB SERVER NGINX  copy the content 1 on 2 
 
-COPY  --from=builder app/build /usr/share/nginx/html
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html 
+RUN rm -rf ./*
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/build .
+ENTRYPOINT [ "nginx","-g","daemon off;" ]
+
+

@@ -1,14 +1,20 @@
 version: '3'
 services:
-  dc_myapp:
-    container_name: container_myappweb
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "80:3000"
-    environment:
-      - NODE_ENV: production 
+    
+  reverse-proxy:
+    container_name: proxy-c
+    image: nginx
     volumes:
-      - ./src:/app/src 
-  
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+
+  web:
+    container_name: web
+    image : web-react-i
+    build:
+      context: .
+    ports:
+      - 8000:80
+
+    
