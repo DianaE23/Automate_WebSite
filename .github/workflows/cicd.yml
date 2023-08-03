@@ -38,8 +38,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2.2.0
         with:
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -50,7 +50,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/clockbox:latest
 
 #1. Image docker crée et stocker dans la registry dockerhub 
 #2. Récuperation de l'image dans le registry dockerhub" 
