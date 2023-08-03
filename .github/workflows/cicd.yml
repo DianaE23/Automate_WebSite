@@ -25,6 +25,8 @@ jobs:
       - run: npm install 
       - run: npm ci 
       - run: npm run build --if-present
+        env:
+          CICD: false
       - run: npm test
 
   push_to_registry:
