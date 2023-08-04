@@ -72,11 +72,10 @@ jobs:
           key: ${{ secrets.L1_KEY }}
           port: ${{ secrets.L1_PORT }}
           script: |
-            pdw
-            cd /cvcd
+            pwd
+            cd ~/cvcd
             docker compose stop
             docker compose rm -f
-            docker compose pull
             docker compose up -d
 
 
