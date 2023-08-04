@@ -66,6 +66,7 @@ jobs:
 deploy:
     needs: push_to_registry
     name: deploy image
+    
     runs-on: ubuntu-latest
     steps:
     - name: deploy and update container on VPS 
@@ -73,10 +74,10 @@ deploy:
       with:
         host: ${{ secrets.L1_HOST }}
         username: ${{ secrets.L1_USERNAME }}
-        password: ${{ secrets.L1_PASSWORD }}
+        key: ${{ secrets.L1_KEY }}
         port: ${{ secrets.L1_PORT }}
         script: |
-          cd ./cvcd
+          cd cvcd
           docker-compose stop
           docker-compose rm -f
           docker-compose pull
