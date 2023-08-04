@@ -28,6 +28,7 @@ jobs:
         env:
           CICD: false
       
+
   push_to_registry:
 
     name: Push Docker image to Docker Hub
@@ -57,7 +58,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_REPO }}
-  
   deploy:
     needs: push_to_registry
     name: deploy image
@@ -67,15 +67,16 @@ jobs:
     - name: deploy and update container on VPS 
       uses: appleboy/ssh-action@main
       with:
-        host: ${{ secrets.L1_HOST }}
-        username: ${{ secrets.L1_USERNAME }}
-        key: ${{ secrets.L1_KEY }}
-        port: ${{ secrets.L1_PORT }}
-        - run: cd cvcd
-        - run: docker-compose stop
-        - run: docker-compose rm -f
-        - run: docker-compose pull
-        - run: docker-compose up -d
+          host: ${{ secrets.L1_HOST }}
+          username: ${{ secrets.L1_USERNAME }}
+          key: ${{ secrets.L1_KEY }}
+          port: ${{ secrets.L1_PORT }}
+          script: |
+            cd cvcd
+            docker-compose stop
+            docker-compose rm -f
+            docker-compose pull
+            docker-compose up -d
 
 
 #1. Image docker crée et stocker dans la registry dockerhub 
