@@ -53,14 +53,14 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_REPO }}
+          tags: docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
 
 
   deploy:
 
     needs: push_to_registry
 
-    name: deploy image
+    name: Deploy image and run container to linux vps 
 
     runs-on: ubuntu-latest
     steps:
