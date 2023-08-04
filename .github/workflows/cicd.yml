@@ -70,14 +70,14 @@ deploy:
     steps:
     - name: deploy and update container on VPS 
       uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.L1_HOST }}
-          username: ${{ secrets.L1_USERNAME }}
-          password: ${{ secrets.L1_PASSWORD }}
-          port: ${{ secrets.L1_PORT }}
-          script: 
-            cd ./cvcd
-            docker-compose stop
-            docker-compose rm -f
-            docker-compose pull
-            docker-compose up -d
+      with:
+        host: ${{ secrets.L1_HOST }}
+        username: ${{ secrets.L1_USERNAME }}
+        password: ${{ secrets.L1_PASSWORD }}
+        port: ${{ secrets.L1_PORT }}
+        script: 
+          cd ./cvcd
+          docker-compose stop
+          docker-compose rm -f
+          docker-compose pull
+          docker-compose up -d
