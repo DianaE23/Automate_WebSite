@@ -71,14 +71,14 @@ jobs:
           username: ${{ secrets.L1_USERNAME }}
           key: ${{ secrets.L1_KEY }}
           port: ${{ secrets.L1_PORT }}
-          script: |
+          script: | #Change stdin psw for more security (todo)
             pwd
             cd ~/cvcd
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
-            docker compose stop
             echo ============================================
             echo ============================================
             docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
+            docker compose stop
             docker compose rm -f
             docker compose up -d
 
