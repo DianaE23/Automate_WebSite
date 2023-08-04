@@ -65,11 +65,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy and update container on VPS 
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.L1_HOST }}
           username: ${{ secrets.L1_USERNAME }}
-          password: ${{ secrets.L1_PASSWORD }}
+          key: ${{ secrets.L1_KEY }}
           port: ${{ secrets.L1_PORT }}
           script: 
             cd ./cvcd
