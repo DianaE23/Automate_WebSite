@@ -66,17 +66,6 @@ jobs:
     steps:
     - name: deploy and update container on VPS 
       uses: appleboy/ssh-action@main
-      with:
-          host: ${{ secrets.L1_HOST }}
-          username: ${{ secrets.L1_USERNAME }}
-          key: ${{ secrets.L1_KEY }}
-          port: ${{ secrets.L1_PORT }}
-          script: |
-            cd cvcd
-            docker-compose stop
-            docker-compose rm -f
-            docker-compose pull
-            docker-compose up -d
 
 
 #1. Image docker crée et stocker dans la registry dockerhub 
