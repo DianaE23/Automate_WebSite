@@ -66,19 +66,18 @@ jobs:
 deploy:
     needs: push_to_registry
     name: deploy image
-    
+
     runs-on: ubuntu-latest
     steps:
     - name: deploy and update container on VPS 
-      uses: appleboy/ssh-action@v0.1.10
+      uses: appleboy/ssh-action@main
       with:
         host: ${{ secrets.L1_HOST }}
         username: ${{ secrets.L1_USERNAME }}
         key: ${{ secrets.L1_KEY }}
         port: ${{ secrets.L1_PORT }}
-        script: |
-          cd cvcd
-          docker-compose stop
-          docker-compose rm -f
-          docker-compose pull
-          docker-compose up -d
+        - run: cd cvcd
+        - run: docker-compose stop
+        - run: docker-compose rm -f
+        - run: docker-compose pull
+        - run: docker-compose up -d
