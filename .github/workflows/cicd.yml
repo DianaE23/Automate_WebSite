@@ -74,7 +74,7 @@ jobs:
           script: |
             pwd
             cd ~/cvcd
-            docker login -p ${{ secrets.DOCKER_TOKEN }} -u ${{ secrets.DOCKER_USERNAME }}
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
             docker compose stop
             echo ============================================
             echo ============================================
