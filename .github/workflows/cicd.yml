@@ -58,14 +58,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_REPO }}
-  deploy:
-    needs: push_to_registry
-    name: deploy image
 
-    runs-on: ubuntu-latest
-    steps:
-    - name: deploy and update container on VPS 
-      uses: appleboy/ssh-action@main
 
 
 #1. Image docker crée et stocker dans la registry dockerhub 
