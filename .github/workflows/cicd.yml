@@ -28,15 +28,12 @@ jobs:
         env:
           CICD: false
       
+
   push_to_registry:
 
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
-
-      - permissions:
-        packages: write
-        contents: read
         
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -59,8 +56,32 @@ jobs:
           tags: ${{ secrets.DOCKER_REPO }}
 
 
+  deploy:
+
+    needs: push_to_registry
+
+    name: deploy image
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy and update container on VPS 
+        uses: appleboy/ssh-action@v0.1.10
+          with:
+            host: ${{ secrets.L1_HOST }}
+            username: ${{ secrets.L1_USERNAME }}
+            password: ${{ secrets.L1_PASSWORD }}
+            port: ${{ secrets.L1_PORT }}
+            script: 
+              cd ./cvcd
+              docker-compose stop
+              docker-compose rm -f
+              docker-compose pull
+              docker-compose up -d
+
 
 #1. Image docker crée et stocker dans la registry dockerhub 
 #2. Récuperation de l'image dans le registry dockerhub" 
 #3. lancement des conteneurs dans le VPS
 
+
+            
