@@ -69,9 +69,9 @@ jobs:
         with:
           host: ${{ secrets.L1_HOST }}
           username: ${{ secrets.L1_USERNAME }}
-          key: ${{ secrets.L1_KEY }}
+          key: ${{ secrets.L1_PASSWORD }}
           port: ${{ secrets.L1_PORT }}
-          script: 
+          script: |
             cd ./cvcd
             docker-compose stop
             docker-compose rm -f
