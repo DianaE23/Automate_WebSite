@@ -10,20 +10,3 @@ services:
       - 8000:80
 
 
-version: '3.1'
-secrets:
-  dockerisec:
-    external: true
-
-services:
-  #app container ok
-  web:
-    container_name: web
-    image: dockerisec
-    secrets:
-      - dockerisec
-    build:
-      context: .
-    ports:
-      - 8000:80
-

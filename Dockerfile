@@ -6,7 +6,7 @@
 #COPY package-lock.json ./
 #RUN npm install 
 #CMD ["npm", "start"]
-###########################################
+########################################4###
 
 
 #STAGE 1 BUILD IMAGE 
