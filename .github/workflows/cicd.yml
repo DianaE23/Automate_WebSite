@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy and update container on VPS 
-        uses: appleboy/ssh-action@v0.1.10
+        uses: appleboy/ssh-action@main
         with:
           host: ${{ secrets.L1_HOST }}
           username: ${{ secrets.L1_USERNAME }}
