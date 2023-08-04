@@ -72,11 +72,12 @@ jobs:
           key: ${{ secrets.L1_KEY }}
           port: ${{ secrets.L1_PORT }}
           script: |
-            cd ./cvcd
-            docker-compose stop
-            docker-compose rm -f
-            docker-compose pull
-            docker-compose up -d
+            pdw
+            cd /cvcd
+            docker compose stop
+            docker compose rm -f
+            docker compose pull
+            docker compose up -d
 
 
 #1. Image docker crée et stocker dans la registry dockerhub 
