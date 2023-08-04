@@ -69,7 +69,7 @@ jobs:
         with:
           host: ${{ secrets.L1_HOST }}
           username: ${{ secrets.L1_USERNAME }}
-          key: ${{ secrets.L1_PASSWORD }}
+          key: ${{ secrets.L1_KEY }}
           port: ${{ secrets.L1_PORT }}
           script: |
             cd ./cvcd
