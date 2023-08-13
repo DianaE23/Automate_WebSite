@@ -78,7 +78,7 @@ jobs:
             docker compose up -d
             docker logout
 
-#      docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
+#   docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
 #1. Image docker crée et stocker dans la registry dockerhub 
 #2. Récuperation de l'image dans le registry dockerhub" 
 #3. lancement des conteneurs dans le VPS
