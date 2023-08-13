@@ -78,7 +78,9 @@ jobs:
         with:
          username: ${{ secrets.DOCKER_USERNAME }}
          password: ${{ secrets.DOCKER_TOKEN }}
-      - run: docker compose up 
+      - run: 
+          cd ~/cvcd
+          docker compose up 
 
 
 #    docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
