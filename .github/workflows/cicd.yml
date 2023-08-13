@@ -73,7 +73,7 @@ jobs:
           port: ${{ secrets.L1_PORT }}
           script: | #Change stdin psw for more security (todo)
             cd ~/cvcd
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
+            docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin ${{ secrets.DOCKER_TOKEN }}
             docker compose rm -f
             docker compose pull
             docker compose up -d
