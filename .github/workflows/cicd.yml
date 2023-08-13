@@ -72,14 +72,11 @@ jobs:
           key: ${{ secrets.L1_KEY }}
           port: ${{ secrets.L1_PORT }}
           script: | #Change stdin psw for more security (todo)
-            echo connect to vps     
-      - name: login - Build and push
-        uses: docker/login-action@v2.2.0
-        with:
-         username: ${{ secrets.DOCKER_USERNAME }}
-         password: ${{ secrets.DOCKER_TOKEN }}
-      - run: cd ~/cvcd
-      - run: docker compose up
+            cd ~/cvcd
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
+            docker compose pull
+            docker compose up -d
+            docker logout
 
 #    docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
 #1. Image docker crée et stocker dans la registry dockerhub 
