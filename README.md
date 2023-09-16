@@ -17,3 +17,4 @@ Stack:
 - Database connection
 - Docker services 
 - CICD configuration
+![Archi01](https://github.com/DianaE23/CloudData/assets/123725630/e6ccfec0-a443-4d81-8ea8-2b27868c9924)
