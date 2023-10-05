@@ -1,6 +1,6 @@
 # Cloud Project 
 
-## Devellopping, Dockerizing and Deploy a resume website 
+# Develop, Dockerize and Deploy a CV website 
 
 Stack: 
 - React
